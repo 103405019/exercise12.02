@@ -1,39 +1,37 @@
-class Car{
-float x;
-float y;
-float w=50;
-float h=25;
-float speed;
-PImage car;
+class Chicken {
+  float x ; 
+  float y ;
+  float w=40;
+  float h=55;
+  PImage img ;
+  float speed = 10 ; 
+  Chicken (float x , float y ) {
+    img = loadImage("chicken.png") ;
+    this.x = x ; 
+    this.y = y ;
 
+  }
+  void reset(){
+    x = width / 2  ;  // 這裏指的是 整個遊戲的 width
+    y = 0 ; 
+  }
+  void display (){
+    image(img,x,y);
+  }
+  
+  
+  void moveUp (){
 
-Car(float x,float y){
-this.x=x;
-this.y=y;
-speed=10;
-car=loadImage("car.png");
+    y-= speed ;
+  }
+  void moveDown (){
+    y+= speed ;
+  }
+  void moveLeft (){
+    x-= speed ;
+  }
+  void moveRight (){
+    x+= speed ;
+  }
+  
 }
-
-Car(float x,float y, float speed){
-this.x=x;
-this.y=y;
-this.speed=speed;
-car=loadImage("car.png");
-}
-
-
-
-void moveForward(){
-x+=speed;
-}
-
-void display(){
-image(car, x,y);
-}
-
-void reset(){
-x=-30;
-}
-
-}
-
